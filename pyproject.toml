@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hotflow"
+version = "0.1.0"
+description = "Taobao Alliance data ingestion and AI copy generation pipeline"
+readme = "README.md"
+authors = [{name = "HotFlow"}]
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+    "SQLAlchemy>=2.0.25",
+    "python-dotenv>=1.0.1",
+    "openai>=1.10.0",
+    "pydantic>=2.6.0",
+    "typer>=0.12.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+hotflow = "hotflow.cli:app"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["."]
